@@ -10,6 +10,46 @@ class AssgnTask1{
         //After rotation the Matrix should be printed inside the method
         //Only the integer row number is to be returned
 
+        int row = matrix.length;
+        int column = matrix[0].length;
+
+        int rotation = (examWeek - 1) % row;
+
+        if(rotation < 0) {
+            rotation += row;
+        }
+
+        for(int i = 0; i < rotation; i++) {
+            String[] last_row = matrix[row - 1];
+
+            for(int j = row - 1; j > 0; j--) {
+                matrix[j] = matrix[j - 1];
+            }
+
+            matrix[0] = last_row;
+        }
+
+        for(int i = 0; i < row; i++) {
+            for(int j = 0; j < column; j++) {
+                
+                if("AA".equals(matrix[i][j])){
+                    return i + 1;
+                }
+            }
+        }
+
+        for(int i = 0; i < row; i++) {
+            for(int j = 0; j < column; j++) {
+                System.out.println("| " + matrix[i][j] + " ");
+
+                if(matrix[i][j] != null && matrix[i][j].length() == 1) {
+                    System.out.println(" ");
+                }
+
+                System.out.println("| ");
+            }
+        }
+
         //TO DO
         return null;
     }
