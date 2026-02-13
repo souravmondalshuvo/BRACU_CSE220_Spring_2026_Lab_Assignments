@@ -31,22 +31,24 @@ class AssgnTask1{
 
         for(int i = 0; i < row; i++) {
             for(int j = 0; j < column; j++) {
-                
-                if("AA".equals(matrix[i][j])){
-                    return i + 1;
+                System.out.print("| " + matrix[i][j]);
+
+                if(matrix[i][j].length() == 1) {
+                    System.out.print("  ");
+                } else {
+                    System.out.print(" ");
                 }
             }
+
+            System.out.println("|");
         }
 
         for(int i = 0; i < row; i++) {
             for(int j = 0; j < column; j++) {
-                System.out.println("| " + matrix[i][j] + " ");
-
-                if(matrix[i][j] != null && matrix[i][j].length() == 1) {
-                    System.out.println(" ");
+                
+                if("AA".equals(matrix[i][j])){
+                    return i + 1;
                 }
-
-                System.out.println("| ");
             }
         }
         
