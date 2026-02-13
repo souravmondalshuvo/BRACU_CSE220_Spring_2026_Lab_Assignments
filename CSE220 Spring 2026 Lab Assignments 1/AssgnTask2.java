@@ -20,7 +20,7 @@ class AssgnTask2{
         for(int i = 0; i < new_row; i++) {
             for(int j = 0; j < new_column; j++) {
 
-                int matrix_row = 2 * i;
+                int matrix_row = 2 * i; 
                 int matrix_column = 2 * j;
 
                 int summed_up_matrix = matrix[matrix_row][matrix_column] + matrix[matrix_row][matrix_column + 1] + matrix[matrix_row + 1][matrix_column] + matrix[matrix_row + 1][matrix_column + 1];
