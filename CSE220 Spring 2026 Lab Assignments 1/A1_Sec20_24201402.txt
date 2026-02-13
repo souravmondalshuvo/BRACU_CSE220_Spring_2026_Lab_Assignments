@@ -90,3 +90,50 @@
         // return null;
         return compressed_2D_matrix;
     }
+
+//Assignment Task 03: Game Arena
+
+    //Complete this method so that it gives the Expected Output
+    //YOU ONLY HAVE TO SUBMIT THIS METHOD, NO OTHER DRIVER CODE
+    public static void playGame( Integer[][] arena ){
+
+        //For this task you don't need to create any new 2D array
+        //just print the result inside the function
+        
+        //TO DO
+
+        int row = arena.length;
+        int column = arena[0].length;
+
+        int total_point = 0;
+
+        for(int i = 0; i < row; i++) {
+            for(int j = 0; j < column; j++) {
+
+                if(arena[i][j] != 0 && arena[i][j] % 50 == 0) {
+
+                    if(i > 0 && arena[i - 1][j] == 2) {
+                        total_point += 2;
+                    }
+
+                    if(i < row - 1 && arena[i + 1][j] == 2) {
+                        total_point += 2;
+                    }
+
+                    if(j > 0 && arena[i][j - 1] == 2) {
+                        total_point += 2;
+                    }
+
+                    if(j < column - 1 && arena[i][j + 1] == 2) {
+                        total_point += 2;
+                    }
+                }
+            }
+        }
+
+        if(total_point >= 10) {
+            System.out.println("Points Gained: " + total_point + ". Your team has survived the game.");
+        } else {
+            System.out.println("Points Gained: " + total_point + ". Your team is out.");
+        }
+    }
