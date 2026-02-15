@@ -11,4 +11,4 @@ NOTE:
 3) THERE WILL BE PENALTY IF ANY OF THE TWO INSTRUCTIONS ABOVE ISN'T FOLLOWED!!
 4) If you find any issues with the Tester Codes please inform AIB.
 
-**Try to use any modern IDEs like VSCode/Netbeans/IntelliJ. DrJAVA is NOT RECOMMENDED**
+**Try to use any modern IDEs like VSCode/Netbeans/IntelliJ. DrJAVA is NOT RECOMMENDED** 
