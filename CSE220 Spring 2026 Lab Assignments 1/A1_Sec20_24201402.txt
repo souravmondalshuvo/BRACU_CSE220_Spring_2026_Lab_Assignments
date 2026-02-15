@@ -137,3 +137,67 @@
             System.out.println("Points Gained: " + total_point + ". Your team is out.");
         }
     }
+
+//Assignment Task 04: Rotate Secret
+
+    //Complete this method so that it gives the Expected Output
+    //YOU ONLY HAVE TO SUBMIT THIS METHOD, NO OTHER DRIVER CODE
+    //If needed you can create extra helper static methods
+    //if extra helper methods are used then you must submit those as well
+    public static void rotateSecret( Character[][] board ){
+
+        //Print the message inside of this method
+        //TO DO
+
+        int row = board.length;
+        int total_layer = row / 2;
+
+        for(int i = 0; i < total_layer; i++) {
+
+            int minimum = i;
+            int maximum = row - 1 - i;
+            int rotation = total_layer - i;
+
+            for(int j = 0; j < rotation; j++) {
+
+                char previous = board[minimum + 1][minimum];
+
+                for(int k = minimum; k <= maximum; k++) {
+
+                    char temp = board[minimum][k];
+                    board[minimum][k] = previous;
+                    previous = temp;
+                }
+
+                for(int l = minimum + 1; l <= maximum; l++) {
+
+                    char temp = board[l][maximum];
+                    board[l][maximum] = previous;
+                    previous = temp;
+                }
+
+                for(int m = maximum - 1; m >= minimum; m--) {
+                    
+                    char temp = board[maximum][m];
+                    board[maximum][m] = previous;
+                    previous = temp;
+                }
+
+                for(int n = maximum - 1; n >= minimum; n--) {
+
+                    char temp = board[n][minimum];
+                    board[n][minimum] = previous;
+                    previous = temp;
+                }
+            }
+        }
+
+        for(int i = 0; i < row; i++) {
+            for(int j = 0; j < row; j++) {
+                
+                System.out.print(board[i][j]);
+            }
+        }
+
+        System.out.println();
+    }
