@@ -9,6 +9,43 @@ class LabTask1{
 
         //TO DO
 
+        int row = matrix.length;
+        int column = matrix[0].length;
+
+        for(int i = 0; i < column; i++) {
+
+            int start_row = i % 2;
+            int last_row = start_row;
+
+            if(start_row < row) {
+                last_row = start_row + 2 * ((row - 1 - start_row) / 2);
+            }
+
+            boolean first = true;
+
+            if(i % 2 == 0) {
+                for(int j = start_row; j < row; j += 2) {
+                    if(!first) {
+                        System.out.print(" ");
+                    }
+                    
+                    System.out.print(matrix[j][i]);
+                    first = false;
+                }
+            } else {
+                for(int k = last_row; k >= start_row; k -= 2) {
+                    if(!first) {
+                        System.out.print(" ");
+                    }
+                    
+                    System.out.print(matrix[k][i]);
+                    first = false;
+                }
+            }
+
+            System.out.println();
+        }
+
     }
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
