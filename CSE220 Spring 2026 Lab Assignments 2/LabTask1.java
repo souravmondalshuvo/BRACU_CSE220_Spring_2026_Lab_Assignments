@@ -10,9 +10,27 @@ public class LabTask1 {
         //Hint: the Node elements are actually Object, you can type cast them
         //      into int or Integer like the following:
         //        (int)n.elem  or  (Integer)n.elem
+
+        if(head == null || head.next == null) {
+            return true;
+        }
+
+        Node current = head;
+
+        while(current.next != null) { 
+            int current_value = (int) current.elem;
+            int next_value = (int) current.next.elem;
+
+            if(current_value >= next_value) {
+                return false;
+            }
+
+            current = current.next;
+        }
         
         //When you're ready to return the boolean remove the following line
-        return null;
+        //return null;
+        return true;
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
