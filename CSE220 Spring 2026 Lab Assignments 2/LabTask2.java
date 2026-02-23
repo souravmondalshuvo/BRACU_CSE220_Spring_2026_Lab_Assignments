@@ -10,8 +10,26 @@ public class LabTask2 {
 
         //TO DO
 
+        Node dummy_head = new Node(null, null);
+        Node current = head;
+
+        int count = 1;
+
+        while(current != null) {
+
+            if(count >= 4 && count % 3 == 1) {
+                Node new_node = new Node(current.elem, null);
+                new_node.next = dummy_head.next;
+                dummy_head.next = new_node;
+            }
+
+            count++;
+            current = current.next;
+        }
+
         //remove the following line when you're ready to return the new head
-        return null;
+        //return null;
+        return dummy_head;
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
