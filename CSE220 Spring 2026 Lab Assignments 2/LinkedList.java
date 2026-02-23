@@ -1,21 +1,31 @@
+//DO NOT TOUCH ANY CODE BELOW
+//HELPER CLASS TO CREATE LINKEDLIST FROM ARRAYS
+//AND TO PRINT LINKED LISTS
 class LinkedList{
-    Node head;
-    public void append(Integer val){
-        // TODO: Insert node at the end
+
+    //This static method will convert an Array into a LinkedList 
+    //The return type is Node since it'll return a head
+    public static Node createList( Object[] arr ){
+        Node head = new Node( arr[0] );
+        Node n = head;
+        for ( int i=1; i<arr.length; i++ ){
+            Node newN = new Node( arr[i] );
+            n.next = newN;
+            n = n.next;
+        }
+        return head;
     }
-    public void printList(){
-        // TODO: Print all elements from head
+
+    public static void printLL(Node head){
+	if (head==null) System.out.println();
+        Node n = head;
+        while (n!=null){
+            if (n.next !=null)
+                System.out.print(n.elem+" -> ");
+            else
+                System.out.println(n.elem);
+            n = n.next;
+        }
     }
-    public void prepend(Integer val){
-        // TODO: Insert node at the beginning
-    }
-    public Node nodeAt(int indx){
-        // TODO: Return node at given index (0-based)
-    }
-    public void removeFirst(){
-        // TODO: Remove the first node
-    }
-    public void removeLast(){
-        // TODO: Remove the last node
-    }
+
 }
