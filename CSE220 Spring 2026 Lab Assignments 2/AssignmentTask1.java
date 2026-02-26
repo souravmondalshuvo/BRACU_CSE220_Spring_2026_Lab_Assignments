@@ -10,8 +10,26 @@ public class AssignmentTask1 {
         
         //TODO
 
+        Node pointer_1 = building1;
+        Node pointer_2 = building2;
+
+        while(pointer_1 != null && pointer_2 != null) {
+
+            if(!pointer_1.elem.equals(pointer_2.elem)) {
+                return "Not Similar";
+            }
+
+            pointer_1 = pointer_1.next;
+            pointer_2 = pointer_2.next;
+        }
+
+        if(pointer_1 != null || pointer_2 != null) {
+            return "Not Similar";
+        }
+
         //Once you're ready to return the String delete the following line
-        return null;
+        //return null;
+        return "Similar";
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
