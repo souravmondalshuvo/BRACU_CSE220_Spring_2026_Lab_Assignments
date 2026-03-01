@@ -7,7 +7,56 @@ public class AssignmentTask2{
         
         //TO DO
 
-        return null; // Remove this when you're ready to return the new head
+        if(head == null) {
+            return null;
+        }
+        
+        Node temp = head;
+        int size = 0;
+
+        while(temp != null) {
+            size++;
+            temp = temp.next;
+        }
+
+        int number_of_elements = size;
+
+        if(popularity.length < number_of_elements) {
+            number_of_elements = popularity.length;
+        }
+
+        Node[] new_nodes = new Node[size];
+        temp = head;
+
+        for(int i = 0; i < number_of_elements; i++) {
+            new_nodes[i] = temp;
+            temp = temp.next;
+        }
+
+        for(int i = 0; i < number_of_elements - 1; i++) {
+            for(int j = 0; j < number_of_elements - i - 1; j++) {
+
+                if(popularity[j] < popularity[j + 1]) {
+                    
+                    int temp_popularity = popularity[j];
+                    popularity[j] = popularity[j + 1];
+                    popularity[j + 1] = temp_popularity;
+
+                    Node temp_node = new_nodes[j];
+                    new_nodes[j] = new_nodes[j + 1];
+                    new_nodes[j + 1] = temp_node;
+                }
+            }
+        }
+
+        for(int i = 0; i < number_of_elements - 1; i++) {
+            new_nodes[i].next = new_nodes[i + 1];
+        }
+
+        new_nodes[number_of_elements - 1].next = temp;
+
+        //return null; // Remove this when you're ready to return the new head
+        return new_nodes[0];
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
