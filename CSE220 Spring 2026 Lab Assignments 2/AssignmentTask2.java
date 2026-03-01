@@ -23,7 +23,7 @@ public class AssignmentTask2{
 
         if(popularity.length < number_of_elements) {
             number_of_elements = popularity.length;
-        }
+        } 
 
         Node[] new_nodes = new Node[size];
         temp = head;
