@@ -1,0 +1,92 @@
+// AssignmentTask1: Building Blocks
+
+    //Two heads are being passed onto this method
+    //and a String is expected as return
+    // After you're done coding  MUST SUBMIT this method
+    public static String checkSimilar( Node building1, Node building2 ){
+        
+        //You're not suppose to create any new Linked List for this task
+        
+        //TODO
+
+        Node pointer_1 = building1;
+        Node pointer_2 = building2;
+
+        while(pointer_1 != null && pointer_2 != null) {
+
+            if(!pointer_1.elem.equals(pointer_2.elem)) {
+                return "Not Similar";
+            }
+
+            pointer_1 = pointer_1.next;
+            pointer_2 = pointer_2.next;
+        }
+
+        if(pointer_1 != null || pointer_2 != null) {
+            return "Not Similar";
+        }
+
+        //Once you're ready to return the String delete the following line
+        //return null; 
+        return "Similar";
+    }
+
+// AssignmentTask2: Organize Books
+
+    // MUST SUBMIT this method
+    public static Node organizeBooks(Node head, Integer[] popularity) {
+        
+        //TO DO
+
+        if(head == null) {
+            return null;
+        }
+        
+        Node temp = head;
+        int size = 0;
+
+        while(temp != null) {
+            size++;
+            temp = temp.next;
+        }
+
+        int number_of_elements = size;
+
+        if(popularity.length < number_of_elements) {
+            number_of_elements = popularity.length;
+        } 
+
+        Node[] new_nodes = new Node[size];
+        temp = head;
+
+        for(int i = 0; i < number_of_elements; i++) {
+            new_nodes[i] = temp;
+            temp = temp.next;
+        }
+
+        for(int i = 0; i < number_of_elements - 1; i++) {
+            for(int j = 0; j < number_of_elements - i - 1; j++) {
+
+                if(popularity[j] < popularity[j + 1]) {
+                    
+                    int temp_popularity = popularity[j];
+                    popularity[j] = popularity[j + 1];
+                    popularity[j + 1] = temp_popularity;
+
+                    Node temp_node = new_nodes[j];
+                    new_nodes[j] = new_nodes[j + 1];
+                    new_nodes[j + 1] = temp_node;
+                }
+            }
+        }
+
+        for(int i = 0; i < number_of_elements - 1; i++) {
+            new_nodes[i].next = new_nodes[i + 1];
+        }
+
+        new_nodes[number_of_elements - 1].next = temp;
+
+        //return null; // Remove this when you're ready to return the new head
+        return new_nodes[0];
+    }
+
