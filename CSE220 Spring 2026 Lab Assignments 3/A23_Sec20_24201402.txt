@@ -136,6 +136,58 @@
         return head1;
     }
 
+// AssignmentTask4: ID Generator
+
+    // MUST SUBMIT this method
+    public static Node idGenerator(Node head1, Node head2, Node head3) {
+        
+        //TO DO
+        //Hint: the Node elements are actually Object, you can type cast them
+        //      into int or Integer like the following:
+        //        (int)n.elem  or  (Integer)n.elem
+
+        Node head_result = null;
+        Node current_1 = head1;
+
+        while(current_1 != null) {
+            Node new_node = new Node(current_1.elem);
+            
+            new_node.next = head_result;
+            head_result = new_node;
+            current_1 = current_1.next;
+        }
+
+        Node tail = head_result;
+
+        while(tail != null && tail.next != null) {
+            tail = tail.next;
+        }
+
+        Node current_2 = head2;
+        Node current_3 = head3;
+
+        while(current_2 != null && current_3 != null) {
+            int total = (Integer) current_2.elem + (Integer) current_3.elem;
+            int digit = total % 10;
+
+            Node new_node = new Node(digit);
+
+            if(head_result == null) {
+                head_result = new_node;
+                tail = new_node;
+            } else {
+                tail.next = new_node;
+                tail = new_node;
+            }
+
+            current_2 = current_2.next;
+            current_3 = current_3.next;
+        }
+
+        //return null; // Remove this when you're ready to return the new head
+        return head_result;
+    }
+
 // AssignmentTask5: Sum Odd Append
 
     //SUBMIT ONLY THIS METHOD
