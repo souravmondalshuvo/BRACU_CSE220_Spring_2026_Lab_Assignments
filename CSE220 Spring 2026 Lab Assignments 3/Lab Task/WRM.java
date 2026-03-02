@@ -64,7 +64,9 @@ public class WRM {
     public void cancelAll() {
         // To Do
 
-
+        dh.next = dh;
+        dh.prev = dh;
+        System.out.println("All appointments cancelled.");
     }
 
 
