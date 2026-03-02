@@ -92,7 +92,7 @@
 
 // AssignmentTask3: Alternate Merge
 
-// MUST SUBMIT this method
+    // MUST SUBMIT this method
     public static Node alternateMerge( Node head1, Node head2 ){
         
         //You’re NOT ALLOWED to create a new singly linked list for this task
