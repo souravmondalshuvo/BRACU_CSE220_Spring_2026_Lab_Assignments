@@ -8,8 +8,41 @@ public class AssignmentTask3 {
 
         //TO DO
 
+        if(head1 == null) {
+            return head2;
+        }
+
+        if(head2 == null) {
+            return head1;
+        }
+
+        Node pointer_1 = head1;
+        Node pointer_2 = head2;
+
+        while(pointer_1 != null && pointer_2 != null) {
+            Node next_1 = pointer_1.next;
+            Node next_2 = pointer_2.next;
+
+            pointer_1.next = pointer_2;
+            pointer_2.next = next_1;
+
+            pointer_1 = next_1;
+            pointer_2 = next_2;
+        }
+
+        if(pointer_2 != null) {
+            Node tail = head1;
+
+            while(tail.next != null) {
+                tail = tail.next;
+            }
+
+            tail.next = pointer_2;
+        }
+
         //remove the following line when returning the Head of the modified LinkedList
-        return null;
+        //return null;
+        return head1;
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
