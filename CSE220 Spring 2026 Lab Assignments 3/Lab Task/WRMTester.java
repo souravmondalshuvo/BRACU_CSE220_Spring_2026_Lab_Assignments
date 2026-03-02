@@ -41,7 +41,7 @@ public class WRMTester {
                     wrm.registerPatient(id, name, age, bloodGroup);
                     break;
 
-                case "2":
+                case "2": 
                     System.out.println("executing ServePatient()...");
                     wrm.servePatient();
                     break;
