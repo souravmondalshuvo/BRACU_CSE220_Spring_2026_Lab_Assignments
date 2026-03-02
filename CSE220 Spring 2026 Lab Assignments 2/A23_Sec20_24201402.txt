@@ -123,3 +123,38 @@
         new_node.next = dh;
         previous.next = new_node;
     }
+
+// AssignmentTask6: Pair Join
+
+    //SUBMIT ONLY THIS METHOD
+    public static void pairJoin(DNode dh1, DNode dh2) {
+        // TO DO
+
+        if(dh1 == null || dh2 == null) {
+            return;
+        }
+
+        DNode pointer_1 = dh1.next;
+        DNode pointer_2 = dh2.next;
+        DNode tail = dh1;
+
+        while(pointer_1 != null && pointer_2 != null) {
+            DNode next_node_1 = pointer_1.next;
+            DNode next_node_2 = pointer_2.next;
+
+            tail.next = pointer_1;
+            pointer_1.prev = tail;
+            tail = pointer_1;
+
+            tail.next = pointer_2;
+            pointer_2.prev = tail;
+            tail = pointer_2;
+
+            pointer_1 = next_node_1;
+            pointer_2 = next_node_2;
+        }
+
+        tail.next = dh1;
+        dh1.prev = tail;
+        dh1.next.prev = dh1;
+    }
