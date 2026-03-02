@@ -30,6 +30,18 @@ public class WRM {
 
     public void showAllPatient() {
         // To Do
+
+        if(dh.next == dh) {
+            System.out.println("No patient in the waiting room.");
+            return;
+        }
+
+        Patient temp = dh.next;
+
+        while(temp != dh) {
+            System.out.println("ID: " + temp.id + ", Name: " + temp.name + ", Age: " + temp.age + ", BloodGroup: " + temp.bloodGroup);
+            temp = temp.next;
+        }
     }
 
     public Boolean canDoctorGoHome() {
