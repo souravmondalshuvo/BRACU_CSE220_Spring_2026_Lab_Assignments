@@ -58,7 +58,8 @@ public class WRM {
 
     public Boolean canDoctorGoHome() {
         // To Do
-        return null; // Delete this line once you're ready
+        // return null; // Delete this line once you're ready
+        return dh.next == dh;
     }
 
     public void cancelAll() {
