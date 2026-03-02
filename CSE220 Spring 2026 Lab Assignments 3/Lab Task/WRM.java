@@ -26,6 +26,18 @@ public class WRM {
 
     public void servePatient() {
         // To do
+
+        if(dh.next == dh) {
+            System.out.println("No patient to serve.");
+            return;
+        }
+
+        Patient first = dh.next;
+
+        dh.next = first.next;
+        first.next.prev = dh;
+
+        System.out.println("Serving patient: " + first.id + " " + first.name);
     }
 
     public void showAllPatient() {
@@ -51,6 +63,8 @@ public class WRM {
 
     public void cancelAll() {
         // To Do
+
+
     }
 
 
