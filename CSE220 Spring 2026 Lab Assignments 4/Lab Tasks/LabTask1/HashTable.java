@@ -55,6 +55,73 @@ public class HashTable {
     //If collision occurs resolve using the steps explained in the question
     public void insert(String key, Integer value){
         // TO DO
+
+        int index = hashFunction(key);
+        FruitNode head = ht[index];
+
+        if(head == null){
+            ht[index] = new FruitNode(key, value);
+            return;
+        }
+
+        FruitNode current = head;
+
+        while(current != null){
+            if(current.fruit[0].equals(key)){
+                current.fruit[1] = value;
+
+                FruitNode updated = current;
+
+                if(updated == head){
+                    ht[index] = head.next;
+                } else {
+                    FruitNode prev = head;
+
+                    while(prev.next != updated){
+                        prev = prev.next;
+                    }
+
+                    prev.next = updated.next;
+                }
+
+                updated.next = null;
+
+                if(ht[index] == null || (Integer) updated.fruit[1] > (Integer) ht[index].fruit[1]){
+                    updated.next = ht[index];
+                    ht[index] = updated;
+                } else {
+                    FruitNode temp = ht[index];
+
+                    while(temp.next != null && (Integer) temp.next.fruit[1] >= (Integer) updated.fruit[1]){
+                        temp = temp.next;
+                    }
+
+                    updated.next = temp.next;
+                    temp.next = updated;
+                }
+
+                return;
+            }
+
+            current = current.next;
+        }
+
+        FruitNode new_node = new FruitNode(key, value);
+
+        if((Integer) new_node.fruit[1] > (Integer) ht[index].fruit[1]){
+            new_node.next = ht[index];
+            ht[index] = new_node;
+            return;
+        }
+
+        FruitNode curr = ht[index];
+
+        while(curr.next != null && (Integer) curr.next.fruit[1] >= (Integer) new_node.fruit[1]){
+            curr = curr.next;
+        }
+
+        new_node.next = curr.next;
+        curr.next = new_node;
     }
 
 }
