@@ -40,7 +40,7 @@ public class HashTable {
                 total += (int) key.charAt(i);
             }
         } else {
-            for(int i = 0; i < length; i += 2){
+            for(int i = 1; i < length; i += 2){
                 total += (int) key.charAt(i);
             }
         }
