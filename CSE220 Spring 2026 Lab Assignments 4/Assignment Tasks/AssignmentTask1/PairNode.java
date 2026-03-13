@@ -6,6 +6,10 @@ public class PairNode {
 	// YOU HAVE TO WRITE THIS CONSTRUCTOR BUT NO NEED TO SUBMIT IT
     public PairNode( Integer k, String v ){
         // TO DO
+
+        key = k;
+        value = v;
+        next = null;
     }
     
 }
