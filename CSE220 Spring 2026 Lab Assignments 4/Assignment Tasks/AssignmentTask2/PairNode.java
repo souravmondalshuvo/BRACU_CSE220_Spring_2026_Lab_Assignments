@@ -6,6 +6,10 @@ public class PairNode {
 
     public PairNode( String k, Integer v ){
         // TO DO
+
+        key = k;
+        value = v;
+        next = null;
     }
     
 }
