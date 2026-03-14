@@ -62,7 +62,22 @@ public class HashTable {
 	//you need to COMPLETE this method
     private int hashFunction( String key ){
         // TO DO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        return -1; //remove this line
+
+        if(key.length() % 2 != 0) {
+            key += "N";
+        }
+
+        int total = 0;
+
+        for(int i = 0; i < key.length(); i += 2) {
+            int ascii_1 = (int) key.charAt(i);
+            int ascii_2 = (int) key.charAt(i + 1);
+
+            String concatened = " " + ascii_1 + ascii_2;
+            total += Integer.parseInt(concatened);
+        }
+        // return -1; //remove this line
+        return total % ht.length;
     }
 
 
@@ -71,8 +86,22 @@ public class HashTable {
     public String searchHashtable( Object[] keyValuePair ){
         // TO DO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+        String key = (String) keyValuePair[0];
+        Integer value = (Integer) keyValuePair[1];
+
+        int hashed_index = this.hashFunction(key);
+        PairNode current = this.ht[hashed_index];
+
+        while(current != null) {
+            if(current.key.equals(key) && current.value.equals(value)) {
+                return "Found";
+            }
+            current = current.next;
+        }
+
         //it'll return either "Found" or "Not Found"
-        return null; // remove this line
+        // return null; // remove this line
+        return "Not Found";
     }
 
 }
