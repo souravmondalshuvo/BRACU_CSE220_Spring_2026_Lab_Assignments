@@ -61,7 +61,9 @@ public class HashTable {
     private int hashFunction( Integer key ){
         // TO DO
 
-        return -1; //remove this line
+        return (key + 3) % ht.length;
+
+        // return -1; //remove this line
     }
 
 
@@ -69,6 +71,24 @@ public class HashTable {
     //before writing remove you should complete hashFunction
     public void remove( Integer key ){
         // TO DO 
+
+        int index = hashFunction(key);
+
+        PairNode current = ht[index];
+        PairNode previous = null;
+
+        while (current != null) {
+            if (current.key.equals(key)) {
+                if (previous == null) {
+                    ht[index] = current.next;
+                } else {
+                    previous.next = current.next;
+                }
+                return;
+            }
+            previous = current;
+            current = current.next;
+        }
     }
 
 }
