@@ -73,8 +73,8 @@ public class HashTable {
             int ascii_1 = (int) key.charAt(i);
             int ascii_2 = (int) key.charAt(i + 1);
 
-            String concatened = " " + ascii_1 + ascii_2;
-            total += Integer.parseInt(concatened);
+            int concatened = ascii_1 * 1000 + ascii_2;
+            total += concatened;
         }
         // return -1; //remove this line
         return total % ht.length;
