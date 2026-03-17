@@ -12,6 +12,14 @@ public class ArrayStack {
 
     public void push(Object element) {
         // TODO: Implement push
+
+        if(top == stack.length - 1) {
+            System.out.println("stack overflow");
+            return;
+        }
+
+        top++;
+        stack[top] = element;
     }
 
     public Object pop() {
