@@ -16,48 +16,20 @@ public class ArrayQueue {
 
     public void enqueue(Object element) {
         // TODO: Implement enqueue
-
-        if(size == queue.length) {
-            System.out.println("queue overflow");
-            return;
-        }
-
-        queue[rear] = element;
-        rear = (rear + 1) % queue.length;
-        size++;
     }
 
     public Object dequeue() {
         // TODO: Implement dequeue
-
-        if(isEmpty()) {
-            System.out.println("queue underflow");
-            return null;
-        }
-
-        Object removedElement = queue[front];
-        front = (front + 1) % queue.length;
-        size--;
-        return removedElement;
-
-        // return null;
+        return null;
     }
 
     public Object peek() {
         // TODO: Implement peek
-
-        if(isEmpty()) {
-            return null;
-        }
-
-        return queue[front];
-        // return null;
+        return null;
     }
 
     public boolean isEmpty() {
         // TODO: Implement isEmpty
-
-        return size == 0;
-        // return false;
+        return false;
     }
 }

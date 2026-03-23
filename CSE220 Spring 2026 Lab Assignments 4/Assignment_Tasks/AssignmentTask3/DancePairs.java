@@ -1,4 +1,3 @@
-package AssignmentTask3;
 import HelperDataStructures.Stack;
 import HelperDataStructures.Queue;
 
@@ -6,7 +5,7 @@ public class DancePairs {
 
     public static void dance_pair(Stack stk) {
 
-        // TODO: Implement pairing logic using only stack and queues
+        // TODO: Implement pairing logic using only stack and queues here
 
     }
 

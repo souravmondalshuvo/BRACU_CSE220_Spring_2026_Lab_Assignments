@@ -1,5 +1,5 @@
 //DO NOT CHANGE THIS CLASS
-pacakge AssignmentTask1;
+package AssignmentTask1;
 public class Node {
     int elem;
     Node next;

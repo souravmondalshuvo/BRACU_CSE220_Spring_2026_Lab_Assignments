@@ -10,7 +10,7 @@ class LinkedListQueue {
         this.front = this.rear = null;
     }
     //DO NOT CHANGE THIS METHOD
-    public void enqueue(int elem) {
+    public void enqueue(Object elem) {
         Node newNode = new Node(elem);
         if (this.rear == null) {
             this.front = this.rear = newNode;
@@ -24,7 +24,7 @@ class LinkedListQueue {
         if (isEmpty()) {
             throw new RuntimeException("Queue is empty");
         }
-        int removedElem = this.front.elem;
+        Object removedElem = this.front.elem;
         this.front = this.front.next;
         if (this.front == null) {
             this.rear = null;

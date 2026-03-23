@@ -1,5 +1,4 @@
 //DO NOT CHANGE ANY CODES IN THIS CLASS
-package AssignmentTask3;
 class Dancer {
     private String name;
     private char gender;

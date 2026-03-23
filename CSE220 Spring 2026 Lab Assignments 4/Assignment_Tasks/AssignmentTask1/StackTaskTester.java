@@ -1,9 +1,9 @@
-pacakge AssignmentTask1;
+package AssignmentTask1;
 public class StackTaskTester {
     
     // You have to write this method
     public static Stack conditionalReverse(Stack stack) {
-        // To Do
+        // TODO: Implement conditional reverse logic here
         return null; //remove this line once your're done
     }
 
@@ -11,8 +11,7 @@ public class StackTaskTester {
     // This method is for printing the element of the stack. No need to modify anything.
     public static void printStack(Stack stack) {
         if (stack==null || stack.isEmpty()) {
-            //System.out.println("null");
-            return; //remove this line once your're done
+            return;
         }
         int elem = stack.pop();
         System.out.printf("| %2d |\n",elem);
