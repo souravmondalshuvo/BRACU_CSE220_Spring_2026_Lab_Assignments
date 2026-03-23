@@ -4,7 +4,34 @@ public class StackTaskTester {
     // You have to write this method
     public static Stack conditionalReverse(Stack stack) {
         // TODO: Implement conditional reverse logic here
-        return null; //remove this line once your're done
+
+        Stack reversed_stack = new Stack();
+        Stack temp = new Stack();
+
+        if(stack == null) {
+            return reversed_stack;
+        }
+
+        int previous = 0;
+        boolean first = true;
+
+        while(!stack.isEmpty()) {
+            int current = stack.pop();
+            temp.push(current);
+
+            if(first || current != previous) {
+                reversed_stack.push(current);
+                previous = current;
+                first = false;
+            }
+        }
+
+        while(!temp.isEmpty()) {
+            stack.push(temp.pop());
+        }
+
+        return reversed_stack;
+        // return null; //remove this line once your're done
     }
 
     //DO NOT CHANGE THIS METHOD
