@@ -85,7 +85,7 @@ LAB 4 (Part#1)
 
 LAB 4 (Part#2)
 
-// AssingnmentTask1: Hashtable: Deletion Operation
+// AssingnmentTask1: Stack: Conditional Reverse
 
     public static Stack conditionalReverse(Stack stack) {
         // TODO: Implement conditional reverse logic here
