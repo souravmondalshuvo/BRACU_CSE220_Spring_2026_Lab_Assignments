@@ -5,8 +5,34 @@ public class RemoveConsecutiveDuplicates{
     // YOU MUST SUBMIT THIS METHOD
     public static String removeConsecDups(String word){
 	// TODO
+
+    if(word == null || word.length() == 0) {
+        return word;
+    }
+
+    LinkedListQueue queue = new LinkedListQueue();
+
+    for(int i = 0; i < word.length(); i++) {
+        queue.enqueue(word.charAt(i));
+    }
+
+    String result = "";
+    char previous = (Character) queue.dequeue();
+    result += previous;
+
+    while(!queue.isEmpty()) {
+        char current = (Character) queue.dequeue();
+
+        if(current != previous) {
+            result += current;
+            previous = current;
+        }
+    }
+
+    return result;
+
 	// You MUST create a LinkedListQueue Object to solve this task
-	return null; //remove this line once you're ready
+	// return null; //remove this line once you're ready
     }
     
     //DO NOT CHANGE and DO NOT SUBMIT THIS METHOD
