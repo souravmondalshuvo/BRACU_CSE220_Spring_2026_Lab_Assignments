@@ -40,13 +40,19 @@ public class ArrayQueue {
         front = (front + 1) % queue.length;
         size--;
 
-        //return null;
         return removed;
+        //return null;
     }
 
     public Object peek() {
         // TODO: Implement peek
-        return null;
+
+        if(isEmpty()) {
+            return null;
+        }
+
+        return queue[front];
+        //return null;
     }
 
     public boolean isEmpty() {
