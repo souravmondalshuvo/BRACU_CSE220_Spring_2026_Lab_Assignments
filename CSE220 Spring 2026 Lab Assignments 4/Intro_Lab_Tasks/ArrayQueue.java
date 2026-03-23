@@ -29,7 +29,19 @@ public class ArrayQueue {
 
     public Object dequeue() {
         // TODO: Implement dequeue
-        return null;
+
+        if(isEmpty()) {
+            System.out.println("queue underflow");
+            return null;
+        }
+
+        Object removed = queue[front];
+        queue[front] = null;
+        front = (front + 1) % queue.length;
+        size--;
+
+        //return null;
+        return removed;
     }
 
     public Object peek() {
