@@ -152,3 +152,90 @@ LAB 4 (Part#2)
         return (String) queue.peek();
         // return null;
     }
+
+// AssingnmentTask3: Stack and Queue: Dancing Pairs
+
+    public static void dance_pair(Stack stk) {
+
+        // TODO: Implement pairing logic using only stack and queues here
+
+        if(stk == null) {
+            return;
+        }
+
+        Queue male_queue = new Queue();
+        Queue female_queue = new Queue();
+        int pair_number = 1;
+
+        while(!stk.isEmpty()) {
+            Dancer first_dancer = (Dancer) stk.pop();
+
+            if(stk.isEmpty()) {
+                if(first_dancer.getGender() == 'F') {
+                    female_queue.enqueue(first_dancer);
+                } else {
+                    male_queue.enqueue(first_dancer);
+                }
+
+                break;
+            }
+
+            Dancer second_dancer = (Dancer) stk.peek();
+
+            if(first_dancer.getGender() != second_dancer.getGender()) {
+                second_dancer = (Dancer) stk.pop();
+                System.out.println("#" + pair_number + ": " + first_dancer + " & " + second_dancer);
+                pair_number++;
+            } else if(first_dancer.getGender() == 'F') {
+                female_queue.enqueue(first_dancer);
+            } else {
+                if(!female_queue.isEmpty()) {
+                    Dancer female = (Dancer) female_queue.dequeue();
+                    System.out.println("#" + pair_number + ": " + first_dancer + " & " + female);
+                    pair_number++;
+                } else {
+                    male_queue.enqueue(first_dancer);
+                }
+            }
+        }
+
+        while(!male_queue.isEmpty() && !female_queue.isEmpty()) {
+            Dancer male = (Dancer) male_queue.dequeue();
+            Dancer female = (Dancer) female_queue.dequeue();
+            System.out.println("#" + pair_number + ": " + male + " & " + female);
+            pair_number++;
+        }
+
+        if(!female_queue.isEmpty()) {
+            System.out.println("Unpaired Female:");
+            boolean first_print = true;
+
+            while(!female_queue.isEmpty()) {
+                if(!first_print) {
+                    System.out.print(", ");
+                }
+
+                System.out.print(female_queue.dequeue());
+                first_print = false;
+            }
+
+            System.out.println();
+        }
+
+        if(!male_queue.isEmpty()) {
+            System.out.println("Unpaired Male:");
+            boolean first_print = true;
+
+            while(!male_queue.isEmpty()) {
+                if(!first_print) {
+                    System.out.print(", ");
+                }
+
+                System.out.print(male_queue.dequeue());
+                first_print = false;
+            }
+
+            System.out.println();
+        }
+
+    }
