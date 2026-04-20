@@ -14,7 +14,7 @@ public class Task7 {
         // return null; //remove this line once ready
     }
 
-    public static Integer levelSumHelper(BTNode root, int level) {
+    private static Integer levelSumHelper(BTNode root, int level) {
         
         if(root == null) {
             return 0;
