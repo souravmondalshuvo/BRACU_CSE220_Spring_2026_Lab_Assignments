@@ -21,7 +21,6 @@ public class Task3 {
             path += root.elem;
 
             if(root.elem.equals(key)) {
-                path += "]";
                 return path;
             }
 
