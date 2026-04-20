@@ -9,7 +9,21 @@ public class Task4 {
     // You can use extra helper private static methods as per need
     public static Integer rangeSum( BSTNode root, Integer low, Integer high ){
         //TO DO
-        return null; // remove this line
+
+        if(root == null) {
+            return 0;
+        }
+
+        if(root.elem < low) {
+            return rangeSum(root.right, low, high);
+        }
+
+        if(root.elem > high) {
+            return rangeSum(root.left, low, high);
+        }
+
+        return root.elem + rangeSum(root.left, low, high) + rangeSum(root.right, low, high);
+        // return null; // remove this line
     }
     //===============================================================
 
