@@ -11,20 +11,20 @@ public class Task3 {
     public static String findPath( BSTNode root, Integer key ){
         // TO DO
 
+        String path = "";
+
         if(root == null) {
             return "No Path Found";
         }
 
-        String path = "[";
-
         while(root != null) {
             path += root.elem;
 
-            if(root.elem.equals(key)) {
+            if(((Integer)root.elem).equals(key)) {
                 return path;
             }
 
-            path += ", ";
+            path += " ";
 
             if(key < root.elem) {
                 root = root.left;
