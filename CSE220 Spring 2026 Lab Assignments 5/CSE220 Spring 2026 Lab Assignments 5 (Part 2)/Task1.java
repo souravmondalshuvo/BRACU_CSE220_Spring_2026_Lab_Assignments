@@ -31,11 +31,20 @@ public class Task1 {
         BSTNode current = root;
         Integer predecessor = null;
 
-        // while(current != null) {
-        //     if(x > current) {
-                
-        //     }
-        // }
+        while(current != null) {
+            if(x > current.elem) {
+                predecessor = current.elem;
+                current = current.right;
+            } else if(x < current.elem) {
+                current = current.left;
+            } else {
+                if(current.left != null) {
+                    return maxOfBST(current.left);
+                }
+
+                return predecessor;
+            }
+        }
         return null; //remove this line
     }
     //==================================================
