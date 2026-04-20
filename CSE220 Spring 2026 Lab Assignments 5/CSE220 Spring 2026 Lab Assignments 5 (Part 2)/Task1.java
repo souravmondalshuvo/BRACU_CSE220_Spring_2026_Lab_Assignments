@@ -27,6 +27,15 @@ public class Task1 {
     // You'll need to find the max of the BST and return it
     public static Integer inOrderPred( BSTNode root, Integer x ){
         // TO DO
+
+        BSTNode current = root;
+        Integer predecessor = null;
+
+        // while(current != null) {
+        //     if(x > current) {
+                
+        //     }
+        // }
         return null; //remove this line
     }
     //==================================================
