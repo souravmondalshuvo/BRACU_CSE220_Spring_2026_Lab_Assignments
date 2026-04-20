@@ -9,7 +9,24 @@ public class Task7 {
     // You can use extra helper private static methods with extra extra params as per need
     public static Integer levelSum( BTNode root ){
         //TO DO
-        return null; //remove this line once ready
+
+        return levelSumHelper(root, 1);
+        // return null; //remove this line once ready
+    }
+
+    public static Integer levelSumHelper(BTNode root, int level) {
+        
+        if(root == null) {
+            return 0;
+        }
+
+        int value = (Integer) root.elem;
+
+        if(level % 2 == 1) {
+            return -value + levelSumHelper(root.left, level + 1) + levelSumHelper(root.right, level + 1);
+        } else {
+            return value + levelSumHelper(root.left, level + 1) + levelSumHelper(root.right, level + 1);
+        }
     }
     //============================================================================
 
