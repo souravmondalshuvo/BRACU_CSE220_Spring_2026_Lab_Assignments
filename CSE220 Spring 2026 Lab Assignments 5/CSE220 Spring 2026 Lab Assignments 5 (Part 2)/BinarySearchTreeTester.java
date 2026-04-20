@@ -58,28 +58,28 @@ public class BinarySearchTreeTester {
         taskPrint("\n========================== TASK#1b =========================");
         taskPrint("================== InOrder Predecessor =================");
 
-        // //First test case is already written for you so, don't change it
-        // t1 = "Task#1b Test#1";
-        // out = Task1.inOrderPred(root, 54);
-        // System.out.println(":Expected Output: 50");
-        // System.out.println(":  Your Output  : "+out);
-        // if(out==null || out!=50) failedPrint(t1);
-        // else successPrint(t1);
+        //First test case is already written for you so, don't change it
+        t1 = "Task#1b Test#1";
+        out = Task1.inOrderPred(root, 54);
+        System.out.println(":Expected Output: 50");
+        System.out.println(":  Your Output  : "+out);
+        if(out==null || out!=50) failedPrint(t1);
+        else successPrint(t1);
         
-        // //Write the rest of the test cases yourself
-        // System.out.println("------------------------------");
-        // // Test Case 2 inOrderPred(root,66)
-        // // TO DO
-        // System.out.println("------------------------------");
-        // // Test Case 3 inOrderPred(root,20)
-        // // TO DO
-        // System.out.println("------------------------------");
-        // // Test Case 4 inOrderPred(root,50)
-        // // TO DO
-        // System.out.println("------------------------------");
-        // // Test Case 5 inOrderPred(root,-6)
-        // // TO DO
-        // System.out.println("------------------------------");
+        //Write the rest of the test cases yourself
+        System.out.println("------------------------------");
+        // Test Case 2 inOrderPred(root,66)
+        // TO DO
+        System.out.println("------------------------------");
+        // Test Case 3 inOrderPred(root,20)
+        // TO DO
+        System.out.println("------------------------------");
+        // Test Case 4 inOrderPred(root,50)
+        // TO DO
+        System.out.println("------------------------------");
+        // Test Case 5 inOrderPred(root,-6)
+        // TO DO
+        System.out.println("------------------------------");
     }
 
     public static void task2(){
