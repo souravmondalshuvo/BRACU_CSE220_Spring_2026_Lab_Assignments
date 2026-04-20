@@ -9,7 +9,21 @@ public class Task6 {
     // You can use extra helper private static methods with extra extra params as per need
     public static Integer subtractSummation( BTNode root ){
         //TO DO
-        return null; //remove this line once ready
+
+        if(root == null) {
+            return 0;
+        }
+
+        return subtreeSummation(root.left) - subtreeSummation(root.right);
+        // return null; //remove this line once ready
+    }
+
+    public static Integer subtreeSummation(BTNode root) {
+        if(root == null) {
+            return 0;
+        }
+
+        return (Integer) root.elem + subtreeSummation(root.left) + subtreeSummation(root.right);
     }
     //============================================================================
 
