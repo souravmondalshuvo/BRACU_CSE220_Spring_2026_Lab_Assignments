@@ -17,7 +17,7 @@ public class Task5 {
         // return null; // remove this line
     }
 
-    public static Integer mirrorSumHelper(BSTNode left_node, BSTNode right_node) {
+    private static Integer mirrorSumHelper(BSTNode left_node, BSTNode right_node) {
         
         if(left_node == null || right_node == null) {
             return 0;
