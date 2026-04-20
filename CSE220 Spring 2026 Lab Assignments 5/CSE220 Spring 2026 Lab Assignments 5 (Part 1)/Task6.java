@@ -18,7 +18,7 @@ public class Task6 {
         // return null; //remove this line once ready
     }
 
-    public static Integer subtreeSummation(BTNode root) {
+    private static Integer subtreeSummation(BTNode root) {
         if(root == null) {
             return 0;
         }
