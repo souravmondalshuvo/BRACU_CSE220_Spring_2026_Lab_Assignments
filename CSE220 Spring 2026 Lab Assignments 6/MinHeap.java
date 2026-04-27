@@ -49,7 +49,7 @@ public class MinHeap {
         heap[1] = heap[size];
         heap[size] = null;
         size--;
-        
+
         heapifyDown(1);
         return min;
     }
@@ -61,6 +61,12 @@ public class MinHeap {
          2. Return root value
         */
        // TODO: Implement peek
+
+       if(isEmpty()) {
+            return null;
+       }
+
+       return heap[1];
     }
 
     // --------------------------
