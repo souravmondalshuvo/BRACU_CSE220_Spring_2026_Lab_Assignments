@@ -133,4 +133,15 @@ public class MinHeap {
 
         return size == 0;
     }
+
+    public int[] getHeapArray() {
+
+        int[] arr = new int[size];
+
+        for(int i = 0; i < size; i++) {
+            arr[i] = heap[i];
+        }
+
+        return arr;
+    }
 }
