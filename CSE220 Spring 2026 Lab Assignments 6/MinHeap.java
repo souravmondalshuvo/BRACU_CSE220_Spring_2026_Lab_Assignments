@@ -98,6 +98,31 @@ public class MinHeap {
          Move element down by comparing with children
         */
         // TODO: Implement heapify down
+
+        while(index <= size) {
+            int leftChild = index * 2;
+            int rightChild = index * 2 + 1;
+            int smallestChild = index;
+
+            if(leftChild <= size && heap[leftChild] < heap[smallestChild]) {
+                smallestChild = leftChild;
+            }
+
+            if(rightChild <= size && heap[rightChild] < heap[smallestChild]) {
+                smallestChild = rightChild;
+            }
+
+            if(smallestChild != index) {
+                Integer temp = heap[index];
+                heap[index] = heap[smallestChild];
+                heap[smallestChild] = temp;
+
+                index = smallestChild;
+            }
+            else {
+                break;
+            }
+        }
     }
 
     public boolean isEmpty(){
