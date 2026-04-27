@@ -144,4 +144,20 @@ public class MinHeap {
 
         return arr;
     }
+    
+    public static void outPlaceHeapsort(int[] arr) {
+
+        MinHeap heap_object = new MinHeap(arr.length);
+
+        for (int i = 0; i < arr.length; i++) {
+            heap_object.insert(arr[i]);
+        }
+
+        int index = 0;
+
+        while(!heap_object.isEmpty()) {
+            arr[index] = heap_object.extractMin();
+            index++;
+        }
+    }
 }
