@@ -25,9 +25,9 @@ public class MinHeap {
             return;
         }
 
-        size++;
         heap[size] = value;
         heapifyUp(size);
+        size++;
     }
 
     public Integer extractMin() {
@@ -45,12 +45,15 @@ public class MinHeap {
             return null;
         }
         
-        int min = heap[1];
-        heap[1] = heap[size];
-        heap[size] = null;
+        int min = heap[0];
+        heap[0] = heap[size - 1];
+        heap[size - 1] = null;
         size--;
 
-        heapifyDown(1);
+        if(size > 0) {
+            heapifyDown(0);
+        }
+        
         return min;
     }
 
@@ -66,7 +69,7 @@ public class MinHeap {
             return null;
        }
 
-       return heap[1];
+       return heap[0];
     }
 
     // --------------------------
@@ -78,8 +81,8 @@ public class MinHeap {
         */
         // TODO: Implement heapify up
 
-        while(index > 1) {
-            int parent = index / 2;
+        while(index > 0) {
+            int parent = (index - 1) / 2;
 
             if(heap[parent] > heap[index]) {
                 Integer temp = heap[parent];
@@ -99,16 +102,16 @@ public class MinHeap {
         */
         // TODO: Implement heapify down
 
-        while(index <= size) {
-            int leftChild = index * 2;
-            int rightChild = index * 2 + 1;
+        while(index < size) {
+            int leftChild = index * 2 + 1;
+            int rightChild = index * 2 + 2;
             int smallestChild = index;
 
-            if(leftChild <= size && heap[leftChild] < heap[smallestChild]) {
+            if(leftChild < size && heap[leftChild] < heap[smallestChild]) {
                 smallestChild = leftChild;
             }
 
-            if(rightChild <= size && heap[rightChild] < heap[smallestChild]) {
+            if(rightChild < size && heap[rightChild] < heap[smallestChild]) {
                 smallestChild = rightChild;
             }
 
