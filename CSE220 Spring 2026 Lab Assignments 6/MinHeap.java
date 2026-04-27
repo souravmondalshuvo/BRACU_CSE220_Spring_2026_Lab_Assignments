@@ -111,7 +111,7 @@ public class MinHeap {
                 smallestChild = leftChild;
             }
 
-            if(rightChild < size && heap[rightChild] < heap[smallestChild]) {
+            if(rightChild < size && heap[rightChild] <= heap[smallestChild]) {
                 smallestChild = rightChild;
             }
 
