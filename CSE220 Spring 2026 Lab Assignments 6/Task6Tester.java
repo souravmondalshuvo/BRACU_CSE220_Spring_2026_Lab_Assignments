@@ -10,129 +10,170 @@ public class Task6Tester {
 
         printHeader("TASK 6 TESTER - TASK SCHEDULER WITH PRIORITY QUEUE");
 
-        printSection("Test 1: Sample Test");
-
-        String[] task_names1 = {"Email", "Meeting", "Code Review", "Lunch", "Debug"};
-        int[] priorities1 = {2, 5, 3, 1, 4};
-
-        String[] result1 = Task6.scheduleTasks(task_names1, priorities1);
-
-        System.out.print("Task Names : ");
-        printStringArray(task_names1);
-
-        System.out.print("Priorities : ");
-        printIntArray(priorities1);
-
-        checkArray(
-            "Scheduled Tasks",
-            result1,
-            new String[]{"Meeting", "Debug", "Code Review", "Email", "Lunch"}
-        );
-
-
-        printSection("Test 2: Already Priority Ordered");
-
-        String[] task_names2 = {"Task A", "Task B", "Task C"};
-        int[] priorities2 = {9, 6, 3};
-
-        String[] result2 = Task6.scheduleTasks(task_names2, priorities2);
-
-        System.out.print("Task Names : ");
-        printStringArray(task_names2);
-
-        System.out.print("Priorities : ");
-        printIntArray(priorities2);
-
-        checkArray(
-            "Scheduled Tasks",
-            result2,
-            new String[]{"Task A", "Task B", "Task C"}
-        );
-
-
-        printSection("Test 3: Reverse Priority Order");
-
-        String[] task_names3 = {"Low", "Medium", "High"};
-        int[] priorities3 = {1, 5, 10};
-
-        String[] result3 = Task6.scheduleTasks(task_names3, priorities3);
-
-        System.out.print("Task Names : ");
-        printStringArray(task_names3);
-
-        System.out.print("Priorities : ");
-        printIntArray(priorities3);
-
-        checkArray(
-            "Scheduled Tasks",
-            result3,
-            new String[]{"High", "Medium", "Low"}
-        );
-
-
-        printSection("Test 4: Same Priority Values");
-
-        String[] task_names4 = {"A", "B", "C", "D"};
-        int[] priorities4 = {5, 5, 3, 5};
-
-        String[] result4 = Task6.scheduleTasks(task_names4, priorities4);
-
-        System.out.print("Task Names : ");
-        printStringArray(task_names4);
-
-        System.out.print("Priorities : ");
-        printIntArray(priorities4);
-
-        checkArray(
-            "Scheduled Tasks",
-            result4,
-            new String[]{"A", "B", "D", "C"}
-        );
-
+        testSampleCase();
+        testAlreadyPriorityOrdered();
+        testReversePriorityOrder();
+        testSamePriorityValues();
+        testSingleTask();
         printFooter();
     }
 
-    public static void printHeader(String title) {
+    // --------------------------
+    // Test 1: Sample Case
+    // --------------------------
+    
+    private static void testSampleCase() {
+        printSection("Test 1: Sample Case");
+
+        String[] task_names = {"Email", "Meeting", "Code Review", "Lunch", "Debug"};
+        int[] priorities = {2, 5, 3, 1, 4};
+
+        String[] expected = {"Meeting", "Debug", "Code Review", "Email", "Lunch"};
+        String[] actual = Task6.scheduleTasks(task_names, priorities);
+
+        System.out.print("Task Names: ");
+        printStringArray(task_names);
+
+        System.out.print("Priorities: ");
+        printIntArray(priorities);
+
+        checkArray("Tasks scheduled by highest priority", expected, actual);
+        System.out.println();
+    }
+
+    // --------------------------
+    // Test 2: Already Priority Ordered
+    // --------------------------
+  
+    private static void testAlreadyPriorityOrdered() {
+        printSection("Test 2: Already Priority Ordered");
+
+        String[] task_names = {"Task A", "Task B", "Task C"};
+        int[] priorities = {9, 6, 3};
+
+        String[] expected = {"Task A", "Task B", "Task C"};
+        String[] actual = Task6.scheduleTasks(task_names, priorities);
+
+        System.out.print("Task Names: ");
+        printStringArray(task_names);
+
+        System.out.print("Priorities: ");
+        printIntArray(priorities);
+
+        checkArray("Tasks remain in priority order", expected, actual);
+        System.out.println();
+    }
+
+    // --------------------------
+    // Test 3: Reverse Priority Order
+    // --------------------------
+   
+    private static void testReversePriorityOrder() {
+        printSection("Test 3: Reverse Priority Order");
+
+        String[] task_names = {"Low", "Medium", "High"};
+        int[] priorities = {1, 5, 10};
+
+        String[] expected = {"High", "Medium", "Low"};
+        String[] actual = Task6.scheduleTasks(task_names, priorities);
+
+        System.out.print("Task Names: ");
+        printStringArray(task_names);
+
+        System.out.print("Priorities: ");
+        printIntArray(priorities);
+
+        checkArray("Tasks are reversed into priority order", expected, actual);
+        System.out.println();
+    }
+
+    // --------------------------
+    // Test 4: Same Priority Values
+    // --------------------------
+  
+    private static void testSamePriorityValues() {
+        printSection("Test 4: Same Priority Values");
+
+        String[] task_names = {"A", "B", "C", "D"};
+        int[] priorities = {5, 5, 3, 5};
+
+        String[] expected = {"A", "B", "D", "C"};
+        String[] actual = Task6.scheduleTasks(task_names, priorities);
+
+        System.out.print("Task Names: ");
+        printStringArray(task_names);
+
+        System.out.print("Priorities: ");
+        printIntArray(priorities);
+
+        checkArray("Same priority keeps original order", expected, actual);
+        System.out.println();
+    }
+
+    // --------------------------
+    // Test 5: Single Task
+    // --------------------------
+  
+    private static void testSingleTask() {
+        printSection("Test 5: Single Task");
+
+        String[] task_names = {"Only Task"};
+        int[] priorities = {100};
+
+        String[] expected = {"Only Task"};
+        String[] actual = Task6.scheduleTasks(task_names, priorities);
+
+        System.out.print("Task Names: ");
+        printStringArray(task_names);
+
+        System.out.print("Priorities: ");
+        printIntArray(priorities);
+
+        checkArray("Single task returns itself", expected, actual);
+        System.out.println();
+    }
+
+    // --------------------------
+    // Utility Methods
+    // --------------------------
+  
+    private static void printHeader(String title) {
         System.out.println();
         System.out.println(CYAN + "============================================================" + RESET);
         System.out.println(CYAN + "     " + title + RESET);
         System.out.println(CYAN + "============================================================" + RESET);
     }
 
-    public static void printSection(String title) {
+    private static void printSection(String title) {
         System.out.println();
         System.out.println(YELLOW + "------------------------------------------------------------" + RESET);
         System.out.println(YELLOW + title + RESET);
         System.out.println(YELLOW + "------------------------------------------------------------" + RESET);
     }
 
-    public static void printFooter() {
-        System.out.println();
+    private static void printFooter() {
         System.out.println(CYAN + "============================================================" + RESET);
         System.out.println(CYAN + "                    TESTING COMPLETE" + RESET);
         System.out.println(CYAN + "============================================================" + RESET);
     }
 
-    public static void checkArray(String testName, String[] actual, String[] expected) {
-        System.out.println(testName);
-
-        System.out.print("Actual   : ");
-        printStringArray(actual);
-
-        System.out.print("Expected : ");
-        printStringArray(expected);
-
-        if(arrayEquals(actual, expected)) {
-            System.out.println(GREEN + "Result   : PASS" + RESET);
+    private static void checkArray(String testName, String[] expected, String[] actual) {
+        
+        if(arrayEquals(expected, actual)) {
+            System.out.println(GREEN + "PASS: " + testName + RESET);
         } else {
-            System.out.println(RED + "Result   : FAIL" + RESET);
-        }
+            System.out.println(RED + "FAIL: " + testName + RESET);
 
-        System.out.println();
+            System.out.print("Expected: ");
+            printStringArray(expected);
+
+            System.out.print("Got     : ");
+            printStringArray(actual);
+        }
     }
 
-    public static boolean arrayEquals(String[] arr1, String[] arr2) {
-        
+    private static boolean arrayEquals(String[] arr1, String[] arr2) {
+       
         if(arr1.length != arr2.length) {
             return false;
         }
@@ -147,7 +188,7 @@ public class Task6Tester {
         return true;
     }
 
-    public static void printStringArray(String[] arr) {
+    private static void printStringArray(String[] arr) {
         System.out.print("[");
 
         for(int i = 0; i < arr.length; i++) {
@@ -161,7 +202,7 @@ public class Task6Tester {
         System.out.println("]");
     }
 
-    public static void printIntArray(int[] arr) {
+    private static void printIntArray(int[] arr) {
         System.out.print("[");
 
         for(int i = 0; i < arr.length; i++) {
