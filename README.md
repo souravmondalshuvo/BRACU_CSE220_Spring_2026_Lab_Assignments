@@ -25,6 +25,8 @@ CSE220_Spring_2026_Lab_Assignments/
 ├── CSE220 Spring 2026 Lab Assignments 2/
 ├── CSE220 Spring 2026 Lab Assignments 3/
 ├── CSE220 Spring 2026 Lab Assignments 4/
+├── CSE220 Spring 2026 Lab Assignments 5/
+├── CSE220 Spring 2026 Lab Assignments 6/
 ├── .gitignore
 ├── LICENSE
 └── README.md
