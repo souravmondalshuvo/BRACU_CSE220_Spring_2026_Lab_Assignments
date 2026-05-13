@@ -95,6 +95,6 @@ public class Lab7Tester {
 
         System.out.println("\nTask 4b: Directed List Converted to Undirected List");
         EdgeNode[] convertedList = Task4b(directedWeightedList);
-        printList(convertedList);
+        printList(convertedList); 
     }
 }
