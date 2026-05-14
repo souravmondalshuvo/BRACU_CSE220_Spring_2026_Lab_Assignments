@@ -25,4 +25,30 @@ public class Task1 {
 
         return new int[] {maxVertex, maxDegree};
     }
+
+    // ========================== Task 1b ==========================
+
+    public static int[] Task1b(EdgeNode[] list) {
+
+        int maxVertex = -1;
+        int maxDegree = -1;
+
+        for(int i = 0; i < list.length; i++) {
+            int degree = 0;
+            
+            EdgeNode current = list[i];
+
+            while(current != null) {
+                degree++;
+                current = current.next;
+            }
+
+            if(degree > maxDegree) {
+                maxDegree = degree;
+                maxVertex = i;
+            }
+        }
+
+        return new int[] {maxVertex, maxDegree};
+    }
 }
