@@ -1,10 +1,10 @@
-public class EdegNode {
+public class EdgeNode {
     
     public int to;
     public int weight;
-    public EdegNode next;
+    public EdgeNode next;
 
-    public EdegNode(int to, int weight, EdegNode next) {
+    public EdgeNode(int to, int weight, EdgeNode next) {
         this.to = to;
         this.weight = weight;
         this.next = next;
