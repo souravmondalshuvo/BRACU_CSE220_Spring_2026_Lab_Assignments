@@ -1,0 +1,355 @@
+======================== EdgeNode ========================
+
+public class EdgeNode {
+    
+    public int to;
+    public int weight;
+    public EdgeNode next;
+
+    public EdgeNode(int to, int weight, EdgeNode next) {
+        this.to = to;
+        this.weight = weight;
+        this.next = next;
+    }
+}
+
+======================== Task 0 ========================
+
+public class Task0 {
+    
+    // ========================== Task 0a ==========================
+
+    public static void addUndirectedMatrixEdge(int[][] matrix, int u, int v, int weight) {
+
+        matrix[u][v] = weight;
+        matrix[v][u] = weight;
+    }
+
+    public static void addDirectedMatrixEdge(int[][] matrix, int from, int to, int weight) {
+
+        matrix[from][to] = weight;
+    }
+
+    public static void printMatrix(int[][] matrix) {
+
+        for(int i = 0; i < matrix.length; i++) {
+            for(int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + "\t");
+            }
+
+            System.out.println();
+        }
+    }
+
+    // ========================== Task 0b ==========================    
+
+    public static void addDirectedListEdge(EdgeNode[] list, int from, int to, int weight) {
+
+        list[from] = new EdgeNode(to, weight, list[from]);
+    }
+
+    public static void addUndirectedListEdge(EdgeNode[] list, int u, int v, int weight) {
+
+        addDirectedListEdge(list, u, v, weight);
+        addDirectedListEdge(list, v, u, weight);
+    }
+
+    public static void printList(EdgeNode[] list) {
+
+        for(int i = 0; i < list.length; i++) {
+            System.out.print((i + 1) + " -> ");
+
+            EdgeNode current = list[i];
+
+            while(current != null) {
+                System.out.println("(" + (current.to + 1) + ", w=" + current.weight + ") ");
+                current = current.next;
+            }
+
+            System.out.println();
+        }
+    }
+}
+
+======================== Task 1 ========================
+
+public class Task1 {
+
+    // ========================== Task 1a ==========================
+
+    public static int[] Task1a(int[][] matrix) {
+
+        int maxDegree = -1;
+        int maxVertex = -1;
+
+        for(int i = 0; i < matrix.length; i++) {
+            
+            int degree = 0;
+
+            for(int j = 0; j < matrix[i].length; j++) {
+                if(matrix[i][j] != 0) {
+                    degree++;
+                }
+            }
+
+            if(degree > maxDegree) {
+                maxDegree = degree;
+                maxVertex = i;
+            }
+        }
+
+        return new int[] {maxVertex, maxDegree};
+    }
+
+    // ========================== Task 1b ==========================
+
+    public static int[] Task1b(EdgeNode[] list) {
+
+        int maxVertex = -1;
+        int maxDegree = -1;
+
+        for(int i = 0; i < list.length; i++) {
+            int degree = 0;
+            
+            EdgeNode current = list[i];
+
+            while(current != null) {
+                degree++;
+                current = current.next;
+            }
+
+            if(degree > maxDegree) {
+                maxDegree = degree;
+                maxVertex = i;
+            }
+        }
+
+        return new int[] {maxVertex, maxDegree};
+    }
+}
+
+======================== Task 2 ========================
+
+public class Task2 {
+    
+    // ========================== Task 2a ==========================
+
+    public static int[] Task2a (int[][] matrix) {
+
+        int maxVertex = -1;
+        int maxWeightSum = -1;
+
+        for(int i = 0; i < matrix.length; i++) {
+            int weightSum = 0;
+
+            for(int j = 0; j < matrix[i].length; j++) {
+                weightSum += matrix[i][j];
+            }
+
+            if(weightSum > maxWeightSum) {
+                maxWeightSum = weightSum;
+                maxVertex = i;
+            }
+        }
+
+        return new int[] {maxVertex, maxWeightSum};
+    }
+
+    // ========================== Task 2a ==========================
+    
+    public static int[] Task2b (EdgeNode[] list) {
+
+        int maxVertex = -1;
+        int maxWeightSum = -1;
+
+        for(int i = 0; i < list.length; i++) {
+            int weightSum = 0;
+
+            EdgeNode current = list[i];
+
+            while(current != null) {
+                weightSum += current.weight;
+                current = current.next;
+            }
+
+            if(weightSum > maxWeightSum) {
+                maxWeightSum = weightSum;
+                maxVertex = i;
+            }
+        }
+
+        return new int[] {maxVertex, maxWeightSum};
+    }
+}
+
+======================== Task 3 ========================
+
+public class Task3 {
+    
+    // ========================== Task 3a ==========================
+
+    public static int[] Task3a_MaxOutgoingDegree(int[][] matrix) {
+
+        int maxVertex = -1;
+        int maxOutDegree = -1;
+
+        for(int i = 0; i < matrix.length; i++) {
+            int outDegree = 0;
+
+            for(int j = 0; j < matrix[i].length; j++) {
+                if(matrix[i][j] != 0) {
+                    outDegree++;
+                }
+            }
+
+            if(outDegree > maxOutDegree) {
+                maxOutDegree = outDegree;
+                maxVertex = i;
+            }
+        }
+
+        return new int[] {maxVertex, maxOutDegree};
+    }
+
+    public static int[] Task3a_MaxOutgoingWeightSum(int[][] matrix) {
+
+        int maxVertex = -1;
+        int maxWeightSum = -1;
+
+        for(int i = 0; i < matrix.length; i++) {
+            int weightSum = 0;
+
+            for(int j = 0; j < matrix[i].length; j++) {
+                weightSum += matrix[i][j];
+            }
+
+            if(weightSum > maxWeightSum) {
+                maxWeightSum = weightSum;
+                maxVertex = i;
+            }
+        }
+
+        return new int[] {maxVertex, maxWeightSum};
+    }
+
+    // ========================== Task 3b ==========================
+
+    public static int[] Task3b_MaxOutgoingDegree(EdgeNode[] list) {
+
+        int maxVertex = -1;
+        int maxOutDegree = -1;
+
+        for(int i = 0; i < list.length; i++) {
+            int outDegree = 0;
+
+            EdgeNode current = list[i];
+
+            while(current != null) {
+                outDegree++;
+                current = current.next;
+            }
+
+            if(outDegree > maxOutDegree) {
+                maxOutDegree = outDegree;
+                maxVertex = i;
+            }
+        }
+
+        return new int[] {maxVertex, maxOutDegree};
+    }
+
+    public static int[] Task3b_MaxOutgoingWeightSum(EdgeNode[] list) {
+
+
+        int maxVertex = -1;
+        int maxWeightSum = -1;
+
+        for(int i = 0; i < list.length; i++) {
+            int weightSum = 0;
+            
+            EdgeNode current = list[i];
+
+            while(current != null) {
+                weightSum += current.weight;
+                current = current.next;
+            }
+
+            if(weightSum > maxWeightSum) {
+                maxWeightSum = weightSum;
+                maxVertex = i;
+            }
+        }
+
+        return new int[] {maxVertex, maxWeightSum};
+    }
+}
+
+======================== Task 4 ========================
+
+public class Task4 {
+    
+    // ========================== Task 4a ==========================
+
+    public static int[][] Task4a(int[][] directedMatrix) {
+
+
+        int n = directedMatrix.length;
+        int[][] undirectedMatrix = new int[n][n];
+
+        for(int i = 0; i < n; i++) {
+            for(int j = i + 1; j < n; j++) {
+                int totalWeight = directedMatrix[i][j] + directedMatrix[j][i];
+
+                if(totalWeight != 0) {
+                    undirectedMatrix[i][j] = totalWeight;
+                    undirectedMatrix[j][i] = totalWeight;
+                }
+            }
+        }
+
+
+        return undirectedMatrix;
+    }
+
+    // ========================== Task 4b ==========================
+
+    public static void addDirectedListEdge(EdgeNode[] list, int from, int to, int weight) {
+
+        list[from] = new EdgeNode(to, weight, list[from]);
+    }
+
+    public static void addUndirectedListEdge(EdgeNode[] list, int u, int v, int weight) {
+
+        addDirectedListEdge(list, u, v, weight);
+        addDirectedListEdge(list, v, u, weight);
+    }
+
+    public static EdgeNode[] Task4b(EdgeNode[] directedList) {
+
+        int n = directedList.length;
+        int[][] weightMatrix = new int[n][n];
+
+        for(int i = 0; i < n; i++) {
+            EdgeNode current = directedList[i];
+
+            while(current != null) {
+                weightMatrix[i][current.to] += current.weight;
+                current = current.next;
+            }
+        }
+
+        EdgeNode[] undirectedList = new EdgeNode[n];
+
+        for(int i = 0; i < n; i++) {
+            for(int j = i + 1; j < n; j++) {
+                int totalWeight = weightMatrix[i][j] + weightMatrix[j][i];
+
+                if(totalWeight != 0) {
+                    addUndirectedListEdge(undirectedList, i, j, totalWeight);
+                }
+            }
+        }
+
+        return undirectedList;
+    }
+}
